@@ -29,14 +29,19 @@ public class ArtithmaticProblem {
 		int mins2 = 0;
 		int secs2 = 0;
 		
-		while(true) {
-			processTime -= 60;
-			if(processTime < 0) {
-				secs2 = processTime + 60;
-				break;
-			}
-			mins2++;
-		}
+		// 반복문 
+//		while(true) {
+//			processTime -= 60;
+//			if(processTime < 0) {
+//				secs2 = processTime + 60;
+//				break;
+//			}
+//			mins2++;
+//		}
+		
+		// 단순 연산
+		mins2 = 145 / 60;
+		secs2 = 145 % 60;
 		
 		System.out.println(mins2);
 		System.out.println(secs2);
@@ -52,7 +57,8 @@ public class ArtithmaticProblem {
 		int fahrenheit = 0;
 		
 		fahrenheit = 30 * 9 / 5 + 32;
-		System.out.println(fahrenheit);
+		System.out.println("fahrenheit: " + fahrenheit);
+		
 		
 	}
 }
