@@ -15,7 +15,7 @@ public class ArtithmaticProblem {
 		int time1 = 0;
 		
 		time1 = (mins1 * 60) + secs1;
-		System.out.println(time1);
+		System.out.println("ex1) Total time: " + time1 + " seconds");
 		
 		// 2
 		
@@ -43,8 +43,7 @@ public class ArtithmaticProblem {
 		mins2 = 145 / 60;
 		secs2 = 145 % 60;
 		
-		System.out.println(mins2);
-		System.out.println(secs2);
+		System.out.println("ex2) Total mins: " + mins2 + ", total secs: " + secs2);
 		
 		// 3
 		
@@ -53,12 +52,10 @@ public class ArtithmaticProblem {
 		 * 변환 공식: (celsius * 9 / 5) + 32
 		 */
 		
-		int celsius = 30;
-		int fahrenheit = 0;
+		double celsius = 33.3;
+		double fahrenheit = 0;
 		
-		fahrenheit = 30 * 9 / 5 + 32;
-		System.out.println("fahrenheit: " + fahrenheit);
-		
-		
+		fahrenheit = celsius * 9 / 5 + 32;
+		System.out.println("ex3) " + fahrenheit + " fahrenheit degree");
 	}
 }
