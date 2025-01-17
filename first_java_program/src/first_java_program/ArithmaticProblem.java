@@ -1,10 +1,10 @@
 package first_java_program;
 
-public class ArtithmaticProblem {
+public class ArithmaticProblem {
 	public static void main(String[] args) {
 		// 1
 
-		/*
+		/*ß
 		 * 산술연산자를 이용
 		 * mins와 secs의 값을 초로 변환해
 		 * time에 할당 후 출력 
