@@ -2,6 +2,8 @@ package first_java_program;
 
 public class SwitchStatement {
 	public static void main(String[] args) {
+		// Java 1.6 switch
+		
 		int step = 1;
 		// 라면 끓이기 절차 
 		switch(step) {
@@ -53,5 +55,46 @@ public class SwitchStatement {
 		default:
 			break;
 		}
+		
+		// Switch를 이용해서 변수에 값 할당
+		
+		// Java 13 switch
+		// 회원가입을 받을 때, 사용자가 등록할 수 없는 아이디 목록.
+		// 관리자들이 사용하는 아이디
+		// admin, root, superUser, administrator, etc.
+		// 운영자들이 사용하는 아이디
+		// master, operator, system, sysopr 
+		String memberID = "master";
+		String memberGrade = switch(memberID) {
+			case "admin":
+				// System.out.println("'관리자'입니다.");
+			case "root":
+			case "superuser":
+			case "administrator":
+				System.out.println("'관리자'입니다.");
+				yield "관리자";
+			case "master":
+			case "operator":
+			case "system":
+			case "sysopr":
+				System.out.println("'운영자'입니다.");
+				yield "운영자";
+			default:
+				System.out.println("'일반사용자'입니다.");
+				yield "일반사용자";
+		};
+		
+		System.out.println(memberID + "는 " + memberGrade + "입니다.");
+		
+		// Java 14 switch
+		// 콤마 및 화살표 함수로 인한 코드간소화
+		String memberID2 = "system";
+		String memberGrade2 = switch(memberID) {
+			case "admin", "root", "superuser", "administrator" -> "관리자";
+			case "master", "operator", "system", "sysopr" -> "운영자";			
+			default -> "일반사용자";
+		};
+		
+		System.out.println(memberID2 + "는 " + memberGrade2 + "입니다.");
 	}
 }
