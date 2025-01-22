@@ -5,11 +5,10 @@ public class Movie {
 	String title;
 	int runningTime;
 	
-	public Movie(String title, int runningTime) {
-		super();
-		this.title = title;
-		this.runningTime = runningTime;
-	}
+//	public Movie(String title, int runningTime) {
+//		this.title = title;
+//		this.runningTime = runningTime;
+//	}
 	
 	public String getTitle() {
 		return title;
@@ -23,6 +22,4 @@ public class Movie {
 	public void setRunningTime(int runningTime) {
 		this.runningTime = runningTime;
 	}
-	
-	
 }
