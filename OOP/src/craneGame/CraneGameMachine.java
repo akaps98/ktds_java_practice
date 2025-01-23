@@ -15,6 +15,7 @@ public class CraneGameMachine {
 	public int doGame() {
 		if(isInsertCoin) {
 			int gainedDoll = (int) (Math.random() * 2);
+			
 			if(gainedDoll == 0) {
 				System.out.println("You've failed :P");
 				return gainedDoll;
