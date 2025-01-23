@@ -5,7 +5,7 @@ public class VendingMachine {
 	Drink monster;
 	Drink hot6;
 	Drink milkis;
-	s
+	
 	public VendingMachine(Drink baccus, Drink monster, Drink hot6, Drink milkis) {
 		this.baccus = baccus;
 		this.monster = monster;
