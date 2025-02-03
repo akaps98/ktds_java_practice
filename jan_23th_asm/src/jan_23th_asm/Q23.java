@@ -1,7 +1,5 @@
 package jan_23th_asm;
 
-import java.util.Scanner;
-
 public class Q23 {
 	public static void main(String[] args) {
 		for(int i = 2; i <= 3; i++) {

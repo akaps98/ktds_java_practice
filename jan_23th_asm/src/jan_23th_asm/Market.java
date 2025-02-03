@@ -23,13 +23,13 @@ public class Market {
 	public void tradingProcess(int quantity, int beforeSelling, boolean isBigger) {
 		if(isBigger) {
 			this.customer.setMoney(this.customer.getMoney() - (this.seller.getQuantity() * this.seller.getPrice()));
-			this.customer.setQuantity(customer.getQuantity() + this.seller.getQuantity());
+			this.customer.setQuantity(this.customer.getQuantity() + this.seller.getQuantity());
 			
 			this.seller.setMoney(this.seller.getMoney() + (beforeSelling * this.seller.getPrice()));
 			this.seller.setQuantity(0);
 		} else {
 			this.customer.setMoney(this.customer.getMoney() - (quantity * this.seller.getPrice()));
-			this.customer.setQuantity(customer.getQuantity() + quantity);
+			this.customer.setQuantity(this.customer.getQuantity() + quantity);
 			
 			this.seller.setMoney(this.seller.getMoney() + (beforeSelling * this.seller.getPrice()));
 			this.seller.setQuantity(this.seller.getQuantity() - quantity);
@@ -85,7 +85,7 @@ public class Market {
 	
 
 	public static void main(String[] args) {
-		Customer customer = new Customer(7, 1000);
+		Customer customer = new Customer(7, 100000);
 		Seller seller = new Seller(12, 3000, 1500);
 		
 		Market market = new Market(customer, seller);
