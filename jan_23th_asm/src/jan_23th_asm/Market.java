@@ -31,7 +31,7 @@ public class Market {
 			this.customer.setMoney(this.customer.getMoney() - (quantity * this.seller.getPrice()));
 			this.customer.setQuantity(this.customer.getQuantity() + quantity);
 			
-			this.seller.setMoney(this.seller.getMoney() + (beforeSelling * this.seller.getPrice()));
+			this.seller.setMoney(this.seller.getMoney() + (quantity * this.seller.getPrice()));
 			this.seller.setQuantity(this.seller.getQuantity() - quantity);
 		}
 	}
@@ -56,21 +56,13 @@ public class Market {
 			System.out.println("\nCustomer cannot afford!\n");
 		} else {
 			if(quantity >= this.seller.getQuantity()) {
-				boolean isBigger = false;
-				
-				if(quantity > this.seller.getQuantity()) {
-					isBigger = true;
-				}
+				boolean isBigger = quantity > this.seller.getQuantity();
 				
 				int beforeSelling = this.seller.getQuantity();
 				
 				tradingProcess(quantity, beforeSelling, isBigger);
 				
-				if(isBigger) {
-					printTradingInfo(quantity, beforeSelling, isBigger);
-				} else {
-					printTradingInfo(quantity, beforeSelling, isBigger);
-				}
+				printTradingInfo(quantity, beforeSelling, isBigger);
 			} else {
 				tradingProcess(quantity, 0, false);
 				
@@ -92,6 +84,6 @@ public class Market {
 		
 		market.printResultInfo();
 		
-		market.purchase(12);
+		market.purchase(10);
 	}
 }
