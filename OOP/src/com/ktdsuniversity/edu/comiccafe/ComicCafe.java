@@ -1,13 +1,23 @@
 package com.ktdsuniversity.edu.comiccafe;
 
 public class ComicCafe {
-	private final int COMIC_FEE = 1000;
+	// 클래스 상수를 초기화 시키는 방법
+	// 1. 클래스 상수 선언과 동시에 값 초기화
+	private static final int COMIC_FEE = 1000;
+	
+	// 2. 클래스 상수만 선언해두고 static scope에서 값 초기화 static {}
+	public static final int VIP_RENTAL_FEE;
+	
+	static {
+		VIP_RENTAL_FEE = 100;
+	}
+	
 	private int wallet;
 	private Comic slamDunk;
 	private Comic onePiece;
 	private Comic bleach;
 	private Comic naruto;
-	
+
 	public ComicCafe(int wallet, Comic slamDunk, Comic onePiece, Comic bleach, Comic naruto) {
 		this.wallet = wallet;
 		this.slamDunk = slamDunk;
@@ -42,7 +52,7 @@ public class ComicCafe {
 	}
 	
 	public void borrowingProcess(Comic comic) {
-		this.wallet += COMIC_FEE;
+		this.wallet += ComicCafe.COMIC_FEE;
 		comic.setIsBorrowed(true);
 		System.out.println("You've borrowed " + comic.getTitle());
 	}
