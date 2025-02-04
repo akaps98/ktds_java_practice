@@ -77,7 +77,6 @@ public class Market {
 	
 
 	public static void main(String[] args) {
-		String[] dd = new String[5];
 		Customer customer = new Customer(7, 100000);
 		Seller seller = new Seller(12, 3000, 1500);
 		
