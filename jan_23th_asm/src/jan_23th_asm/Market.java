@@ -1,7 +1,7 @@
 package jan_23th_asm;
 
 public class Market {
-	Customer customer;
+    Customer customer;
 	Seller seller;
 	
 	public Market(Customer customer, Seller seller) {
