@@ -3,16 +3,16 @@ package com.ktdsuniversity.edu.barprob;
 public class Customer {
 	private int age;
 	private int cash;
-	private double drunk_rate;
-	private double full_rate;
+	private double drunkRate;
+	private double fullRate;
 	
-	public Customer(int age, int cash, double drunk_rate, double full_rate) {
+	public Customer(int age, int cash, double drunkRate, double fullRate) {
 		this.age = age;
 		this.cash = cash;
-		this.drunk_rate = drunk_rate;
-		this.full_rate = full_rate;
+		this.drunkRate = drunkRate;
+		this.fullRate = fullRate;
 	}
-	
+
 	public int getAge() {
 		return age;
 	}
@@ -29,19 +29,21 @@ public class Customer {
 		this.cash = cash;
 	}
 
-	public double getDrunk_rate() {
-		return drunk_rate;
+	public double getDrunkRate() {
+		return drunkRate;
 	}
 
-	public void setDrunk_rate(double drunk_rate) {
-		this.drunk_rate = drunk_rate;
+	public void setDrunkRate(double drunkRate) {
+		this.drunkRate = drunkRate;
 	}
 
-	public double getFull_rate() {
-		return full_rate;
+	public double getFullRate() {
+		return fullRate;
 	}
 
-	public void setFull_rate(double full_rate) {
-		this.full_rate = full_rate;
+	public void setFullRate(double fullRate) {
+		this.fullRate = fullRate;
 	}
+	
+	
 }
