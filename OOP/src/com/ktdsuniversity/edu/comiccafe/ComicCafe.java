@@ -13,17 +13,23 @@ public class ComicCafe {
 	}
 	
 	private int wallet;
-	private Comic slamDunk;
-	private Comic onePiece;
-	private Comic bleach;
-	private Comic naruto;
+	private Comic[] comics;
+//	private Comic slamDunk;
+//	private Comic onePiece;
+//	private Comic bleach;
+//	private Comic naruto;
 
-	public ComicCafe(int wallet, Comic slamDunk, Comic onePiece, Comic bleach, Comic naruto) {
+//	public ComicCafe(int wallet, Comic slamDunk, Comic onePiece, Comic bleach, Comic naruto) {
+//		this.wallet = wallet;
+//		this.slamDunk = slamDunk;
+//		this.onePiece = onePiece;
+//		this.bleach = bleach;
+//		this.naruto = naruto;
+//	}
+	
+	public ComicCafe(int wallet, Comic[] comics) {
 		this.wallet = wallet;
-		this.slamDunk = slamDunk;
-		this.onePiece = onePiece;
-		this.bleach = bleach;
-		this.naruto = naruto;
+		this.comics = comics;
 	}
 
 	public int getWallet() {
@@ -43,12 +49,20 @@ public class ComicCafe {
 	}
 	
 	public void printInfo() {
-		System.out.println("---------------------\nOUR BOOKS\n----------------------\n"
-						  + this.slamDunk.getTitle() + ": " + isBorrowed(this.slamDunk) + "\n"
-						  + this.onePiece.getTitle() + ": " + isBorrowed(this.onePiece) + "\n"
-						  + this.bleach.getTitle() + ": " + isBorrowed(this.bleach) + "\n"
-						  + this.naruto.getTitle() + ": " + isBorrowed(this.naruto) + "\n"
-						  + "----------------------");
+		System.out.println("---------------------\nOUR BOOKS\n----------------------\n");
+		
+		for(int i = 0; i < this.comics.length; i++) {
+			System.out.println(this.comics[i].getTitle() + ": " + this.isBorrowed(this.comics[i]) + "\n");
+		}
+		
+		System.out.println("----------------------");
+		
+//		System.out.println("---------------------\nOUR BOOKS\n----------------------\n"
+//						  + this.slamDunk.getTitle() + ": " + isBorrowed(this.slamDunk) + "\n"
+//						  + this.onePiece.getTitle() + ": " + isBorrowed(this.onePiece) + "\n"
+//						  + this.bleach.getTitle() + ": " + isBorrowed(this.bleach) + "\n"
+//						  + this.naruto.getTitle() + ": " + isBorrowed(this.naruto) + "\n"
+//						  + "----------------------");
 	}
 	
 	public void borrowingProcess(Comic comic) {
@@ -58,55 +72,80 @@ public class ComicCafe {
 	}
 	
 	public void borrowed(String title) {
-		if(this.slamDunk.getTitle().equals(title)) {
-			borrowingProcess(this.slamDunk);
-		} else if(this.onePiece.getTitle().equals(title)) {
-			borrowingProcess(this.onePiece);
-		} else if(this.bleach.getTitle().equals(title)) {
-			borrowingProcess(this.bleach);
-		} else if(this.naruto.getTitle().equals(title)) {
-			borrowingProcess(this.naruto);
-		} else {
-			System.out.println("The book you're searching is invalid! (" + title + ")");
+		for(int i = 0; i < this.comics.length; i++) {
+			if(this.comics[i].getTitle().equals(title)) {
+				borrowingProcess(this.comics[i]);
+				return;
+			}
 		}
+		
+		System.out.println("The book you're searching is invalid! (" + title + ")");
+		
+//		if(this.slamDunk.getTitle().equals(title)) {
+//			borrowingProcess(this.slamDunk);
+//		} else if(this.onePiece.getTitle().equals(title)) {
+//			borrowingProcess(this.onePiece);
+//		} else if(this.bleach.getTitle().equals(title)) {
+//			borrowingProcess(this.bleach);
+//		} else if(this.naruto.getTitle().equals(title)) {
+//			borrowingProcess(this.naruto);
+//		} else {
+//			System.out.println("The book you're searching is invalid! (" + title + ")");
+//		}
 	}
 	
 	public void returned(String title) {
-		if(this.slamDunk.getTitle().equals(title)) {
-			if(this.slamDunk.getIsBorrowed()) {
-				this.slamDunk.setIsBorrowed(false);
-				System.out.println("You've returned " + title);
-			} else {
-				System.out.println(title + " has not been borrowed!");
+		for(int i = 0; i < this.comics.length; i++) {
+			if(this.comics[i].getTitle().equals(title)) {
+				if(this.comics[i].getIsBorrowed()) {
+					this.comics[i].setIsBorrowed(false);
+					System.out.println("You've returned " + title);
+					return;
+				} else {
+					System.out.println(title + " has not been borrowed!");
+					return;
+				}
 			}
-		} else if(this.onePiece.getTitle().equals(title)) {
-			if(this.onePiece.getIsBorrowed()) {
-				this.onePiece.setIsBorrowed(false);
-				System.out.println("You've returned " + title);
-			} else {
-				System.out.println(title + " has not been borrowed!");
-			}
-		} else if(this.bleach.getTitle().equals(title)) {
-			if(this.bleach.getIsBorrowed()) {
-				this.bleach.setIsBorrowed(false);
-				System.out.println("You've returned " + title);
-			} else {
-				System.out.println(title + " has not been borrowed!");
-			}
-		} else if(this.naruto.getTitle().equals(title)) {
-			if(this.naruto.getIsBorrowed()) {
-				this.naruto.setIsBorrowed(false);
-				System.out.println("You've returned " + title);
-			} else {
-				System.out.println(title + " has not been borrowed!");
-			}
-		} else {
-			System.out.println("The book you're searching is invalid! (" + title + ")");
 		}
+		
+		System.out.println("The book you're searching is invalid! (" + title + ")");
+		
+//		if(this.slamDunk.getTitle().equals(title)) {
+//			if(this.slamDunk.getIsBorrowed()) {
+//				this.slamDunk.setIsBorrowed(false);
+//				System.out.println("You've returned " + title);
+//			} else {
+//				System.out.println(title + " has not been borrowed!");
+//			}
+//		} else if(this.onePiece.getTitle().equals(title)) {
+//			if(this.onePiece.getIsBorrowed()) {
+//				this.onePiece.setIsBorrowed(false);
+//				System.out.println("You've returned " + title);
+//			} else {
+//				System.out.println(title + " has not been borrowed!");
+//			}
+//		} else if(this.bleach.getTitle().equals(title)) {
+//			if(this.bleach.getIsBorrowed()) {
+//				this.bleach.setIsBorrowed(false);
+//				System.out.println("You've returned " + title);
+//			} else {
+//				System.out.println(title + " has not been borrowed!");
+//			}
+//		} else if(this.naruto.getTitle().equals(title)) {
+//			if(this.naruto.getIsBorrowed()) {
+//				this.naruto.setIsBorrowed(false);
+//				System.out.println("You've returned " + title);
+//			} else {
+//				System.out.println(title + " has not been borrowed!");
+//			}
+//		} else {
+//			System.out.println("The book you're searching is invalid! (" + title + ")");
+//		}
 	}
 	
 	public static void main(String[] args) {
-		ComicCafe nolSoop = new ComicCafe(5000, new Comic("Slam Dunk"), new Comic("One Piece"), new Comic("Bleach"), new Comic("Naruto"));
+		Comic[] comics = {new Comic("Slam Dunk"), new Comic("One Piece"), new Comic("Bleach"), new Comic("Naruto")};
+		ComicCafe nolSoop = new ComicCafe(5000, comics);
 		
 		nolSoop.printInfo(); // prints all comics in comic cafe
 		

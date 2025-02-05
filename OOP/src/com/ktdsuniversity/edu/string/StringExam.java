@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class StringExam {
 	public static void main(String[] args) {
 //		printFileName();
-//		ex1();
+		ex1();
 		ex3();
 	}
 	
@@ -32,6 +32,7 @@ public class StringExam {
 		String word = "자전거";
 		
 		System.out.println("시작 단어는 " + word);
+		StringBuffer sb = new StringBuffer("자전거\n");
 		
 		while(true) {
 			System.out.println(word);
@@ -39,7 +40,10 @@ public class StringExam {
 			
 			if(inputWord.length() < 3 || inputWord.charAt(0) != word.charAt(word.length() - 1)) {
 				System.out.println("You lose");
+				System.out.println(sb.toString());
 				return;
+			} else {
+				sb.append(inputWord + "\n");
 			}
 			
 			word = inputWord;
@@ -53,6 +57,7 @@ public class StringExam {
 	    int count = 0;
 		
 	    System.out.println("'" + word + "'" + " 로 시작하는 단어 입력하기(두 글자 이상)");
+	    StringBuffer sb = new StringBuffer();
 		
 		while(true) {
 			String inputWord = sc.nextLine().trim();
@@ -60,7 +65,10 @@ public class StringExam {
 			if(inputWord.length() < 2 || inputWord.charAt(0) != word.charAt(0)) {
 				System.out.println("You lose");
 				System.out.println("Score:" + count);
+				System.out.println(sb.toString());
 				return;
+			} else {
+				sb.append(inputWord + "\n");
 			}
 			
 			count++;
@@ -74,6 +82,7 @@ public class StringExam {
 	    int count = 0;
 		
 		System.out.println("'" + word + "'" + " 로 끝나는 단어 입력하기(두 글자 이상)");
+		StringBuffer sb = new StringBuffer();
 		
 		while(true) {
 			String inputWord = sc.nextLine().trim();
@@ -81,7 +90,10 @@ public class StringExam {
 			if(inputWord.length() < 2 || inputWord.charAt(inputWord.length() - 1) != word.charAt(0)) {
 				System.out.println("You lose");
 				System.out.println("Score:" + count);
+				System.out.println(sb.toString());
 				return;
+			} else {
+				sb.append(inputWord + "\n");
 			}
 			
 			count++;
