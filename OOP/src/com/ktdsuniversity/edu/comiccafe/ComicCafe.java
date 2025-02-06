@@ -28,8 +28,8 @@ public class ComicCafe {
 //	}
 	
 	public ComicCafe(int wallet, Comic[] comics) {
-		this.wallet = wallet;
 		this.comics = comics;
+		this.wallet = wallet;
 	}
 
 	public int getWallet() {
