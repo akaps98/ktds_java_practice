@@ -16,5 +16,11 @@ public class StandardTvRemoteControl implements RemoteControl {
 		// TODO Auto-generated method stub
 		System.out.println("Power off");
 	}
+
+	@Override
+	public void openDanawaPage() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
