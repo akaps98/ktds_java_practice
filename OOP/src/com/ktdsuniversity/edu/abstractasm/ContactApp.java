@@ -11,7 +11,7 @@ public class ContactApp implements ContactTool {
 
     @Override
     public void addNewContact(Contact contact) {
-        this.contacts[size] = contact;
+        this.contacts[this.size] = contact; // do not forget to utilize 'this'
         this.size++;
     }
 
