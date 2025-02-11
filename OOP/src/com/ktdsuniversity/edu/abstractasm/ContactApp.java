@@ -1,5 +1,9 @@
 package com.ktdsuniversity.edu.abstractasm;
 
+import com.ktdsuniversity.edu.abstractasm.exception.ContactNotFoundException;
+import com.ktdsuniversity.edu.abstractasm.exception.ContactOutOfBoundsException;
+import com.ktdsuniversity.edu.abstractasm.exception.NullContactException;
+
 public class ContactApp implements ContactTool {
     private int size;
     private Contact[] contacts;
@@ -17,11 +21,21 @@ public class ContactApp implements ContactTool {
 
     @Override
     public Contact getContactAt(int contactIndex) {
-        if(contactIndex > 0 && contactIndex < this.size) {
-            return contacts[contactIndex];
+        if (contactIndex < 0 || contactIndex >= contacts.length) {
+            throw new ContactOutOfBoundsException("Index " + contactIndex + " is out of bounds.");
         }
-        return null; // exception handling
+
+        if (contactIndex >= this.size) {
+            throw new ContactNotFoundException("No contact found at index " + contactIndex);
+        }
+
+        if (contacts[contactIndex] == null) {
+            throw new NullContactException("Contact at index " + contactIndex + " is null.");
+        }
+
+        return contacts[contactIndex];
     }
+
 
     @Override
     public void sort() {
