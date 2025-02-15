@@ -98,7 +98,7 @@ public class Main {
 
                     bulletin.modifyPost(modifiedPostIndex, modifiedTitle, modifiedContent);
                     break;
-                case 5:
+                case 5: // 게시글 삭제
                     System.out.print("삭제하려는 게시글 번호를 입력하세요. ");
                     int deletingPostIndex = input.nextInt();
 
@@ -112,7 +112,7 @@ public class Main {
                     }
 
                     break;
-                case 6:
+                case 6: // 댓글 등록
                     System.out.print("댓글을 등록하려는 게시물 번호를 입력하세요. ");
                     int commentingPostIndex = input.nextInt();
 
@@ -144,13 +144,13 @@ public class Main {
                     bulletin.writeComment(commentingPostIndex, newCommentContent, newCommentAuthor);
 
                     break;
-                case 7:
+                case 7: // 댓글 조회
                     System.out.print("댓글을 조회하려는 게시물 번호를 입력하세요. ");
                     int viewPostCommentIndex = input.nextInt();
 
                     bulletin.viewComment(viewPostCommentIndex);
                     break;
-                case 8:
+                case 8: // 댓글 삭제
                     System.out.print("댓글을 삭제하려는 게시물 번호를 입력하세요. ");
                     int deleteCommentPostIndex = input.nextInt();
 
@@ -168,11 +168,11 @@ public class Main {
                     }
 
                     break;
-                case 0:
+                case 0: // 시스템 종료
                     System.out.println("게시판을 종료합니다.");
                     input.close();
                     return;
-                default:
+                default: // 존재하지 않는 기능
                     System.out.println("존재하지 않는 기능입니다. 다시 입력하세요.");
             }
         }
