@@ -5,3 +5,4 @@ first_java_program/.settings
 org.eclipse.core.resources.prefs
 *.prefs
 jan_23th_asm/bin
+.gitignore
