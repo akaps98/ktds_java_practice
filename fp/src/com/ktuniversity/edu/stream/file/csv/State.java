@@ -1,6 +1,10 @@
 package com.ktuniversity.edu.stream.file.csv;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class State {
+
 	private int id;
 	private String name;
 	private int countryId;
@@ -10,8 +14,26 @@ public class State {
 	private String type;
 	private double latitude;
 	private double longitude;
+
+	private Country country;
+	private List<City> cities;
 	
-	public State(int id, String name, int countryId, String countryCode, String countryName, String stateCode,
+	public State(String[] stateData) {
+		this(
+			Integer.parseInt(stateData[0]),
+			stateData[1],
+			Integer.parseInt(stateData[2]),
+			stateData[3],
+			stateData[4],
+			stateData[5],
+			stateData[6],
+			stateData.length > 7 ? Double.parseDouble(stateData[7]) : 0,
+			stateData.length > 8 ? Double.parseDouble(stateData[8]) : 0
+		);
+	}
+
+	public State(int id, String name, int countryId, 
+			String countryCode, String countryName, String stateCode,
 			String type, double latitude, double longitude) {
 		this.id = id;
 		this.name = name;
@@ -22,54 +44,59 @@ public class State {
 		this.type = type;
 		this.latitude = latitude;
 		this.longitude = longitude;
-	}
-	
-	public State(String[] countryData) {
-		this(Integer.parseInt(countryData[0]),
-			 countryData[1],
-			 Integer.parseInt(countryData[2]),
-			 countryData[3],
-			 countryData[4],
-			 countryData[5],
-			 countryData[6],
-			 Double.parseDouble(countryData[7]),
-			 Double.parseDouble(countryData[8]));
+		this.cities = new ArrayList<>();
 	}
 
+	public void setCities(List<City> cities) {
+		this.cities = cities;
+	}
+	
+	public List<City> getCities() {
+		return this.cities;
+	}
+	
+	public void setCountry(Country country) {
+		this.country = country;
+	}
+	
+	public Country getCountry() {
+		return this.country;
+	}
+	
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public int getCountryId() {
-		return countryId;
+		return this.countryId;
 	}
 
 	public String getCountryCode() {
-		return countryCode;
+		return this.countryCode;
 	}
 
 	public String getCountryName() {
-		return countryName;
+		return this.countryName;
 	}
 
 	public String getStateCode() {
-		return stateCode;
+		return this.stateCode;
 	}
 
 	public String getType() {
-		return type;
+		return this.type;
 	}
 
 	public double getLatitude() {
-		return latitude;
+		return this.latitude;
 	}
-	
+
 	public double getLongitude() {
-		return longitude;
+		return this.longitude;
 	}
-	
+
 }
